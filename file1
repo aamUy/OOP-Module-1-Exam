@@ -1,0 +1,80 @@
+//Rick is a highschooler. He is a bully
+// All classes in this file are showing Encapsulation since all attributes and methods are packed into a single object called class.
+class Rick {
+  int age = 16;
+  String skinColor = "white";
+  bool isSmart = false;
+  static String secret = "I am a pony";
+  
+  study(){
+    print("I don't give");
+  }
+  
+  interact(){
+    print("*proceeds to bully*");
+  }
+  }
+
+//Denis is a copy of Rick.
+//Denis exhibits Inheritance because he inherited all of his contents from Rick.
+class Denis extends Rick{
+}
+
+//Elio is a highschooler too. He is a nerd. He also is affected by Inheritance from Rick.
+class Elio extends Rick{
+  //the use of override indicaes that this is Polymorphism instead of Inheritance as he modifies the attributes and methods of Rick.
+  @override
+  bool isSmart = true;
+  //An encapsulation technique is used in this line _secret which means that only his classmates can know it. If you try to accees this information on another file, it will cause an error unless it came from Nikka's gossip().
+  static String _secret = "I like Nikka";
+  study(){
+    print("I give");
+  }
+  
+  interact(){
+    print("*tutors others*");
+  }
+}
+
+//Since Nikka is also a highschooler, she extends from Rick. She is a Marites.
+class Nikka extends Rick{
+  //by adding new attributes and method while using inheritance, it is also considered as Polymorphism.
+  String probe = "probe and acquire verbatim info*** Rick:"+ Rick.secret + " Elio:"+ Elio._secret;
+  String share = "Didn't you know!?";
+  
+  getInfo(){
+    print("Nikka uses persuasion technique!");
+    print(probe);
+  }
+  
+  process(){
+    print("*pauses for a minute*");
+    print("OhMyCookie!");
+  }
+  
+  spreadInfo(){
+    print(share);
+  }
+  
+  // this method merges all of Nikka's unique abilities and processing skills into one therefore exhibiting Abstraction.
+  gossip(){
+    getInfo();
+    process();
+    spreadInfo();
+  }
+  
+  @override
+  study(){
+    super.study();
+    print("But we need to graduate");
+  }
+  
+  interact(){
+    print("*proceeds to gossip*");
+  }
+}
+
+void main(){
+  Nikka nikka = Nikka();
+  nikka.gossip();
+}
